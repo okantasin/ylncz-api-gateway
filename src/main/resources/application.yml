@@ -1,8 +1,20 @@
 spring:
+  security:
+    jwt:
+      secret: f4c7aab9bb2cfa2f4ef89d6d94c671c2427e926102c44b1407d3f79a7f75bec
   main:
     web-application-type: reactive
   application:
     name: gateway-service
+  cloud:
+    gateway:
+      routes:
+        - id: user-route
+          uri: lb://user-service
+          predicates:
+            - Path=/api/v1/users/**
+          filters:
+            - AuthorizationHeaderFilter
 server:
   port: 8888
 
@@ -10,3 +22,4 @@ eureka:
   client:
     service-url:
       defaultZone: http://localhost:8761/eureka/
+

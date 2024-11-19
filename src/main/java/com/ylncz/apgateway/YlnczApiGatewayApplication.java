@@ -15,11 +15,5 @@ public class YlnczApiGatewayApplication {
 		SpringApplication.run(YlnczApiGatewayApplication.class, args);
 	}
 
-	@Bean
-	public RouteLocator routeLocator(RouteLocatorBuilder builder) {
-		return builder.routes()
-				.route("user-route", r -> r.path("/api/v1/users/**").uri("lb://user-service"))
-				.build();
-	}
 
 }
