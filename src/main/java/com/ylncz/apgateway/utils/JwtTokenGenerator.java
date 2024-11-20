@@ -11,9 +11,8 @@ import java.util.Date;
 public class JwtTokenGenerator {
 
     @Value("${spring.security.jwt.secret}")
-    private String jwtSecret; // Yaml'den gelen JWT Secret
-
-
+    private static String jwtSecret; // Yaml'den gelen JWT Secret
+    
     public static void main(String[] args) {
         // Secret key
         String secretKey = "f4c7aab9bb2cfa2f4ef89d6d94c671c2427e926102c44b1407d3f79a7f75bec";
